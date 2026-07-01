@@ -19,23 +19,21 @@
 
 <div id="links-container">
 <!-- existing links turned into buttons (preserved hrefs) -->
-
 <ul>
-<li><a href='reports/AMD.html'>AMD</a></li>
-<li><a href='reports/TSM.html'>TSM</a></li>
-<li><a href='reports/LRCX.html'>LRCX</a></li>
-<li><a href='reports/MU.html'>MU</a></li>
-<li><a href='reports/MRVL.html'>MRVL</a></li>
-<li><a href='reports/TER.html'>TER</a></li>
-<li><a href='reports/DELL.html'>DELL</a></li>
-<li><a href='reports/SNOW.html'>SNOW</a></li>
-<li><a href='reports/SE.html'>SE</a></li>
-<li><a href='reports/NBIS.html'>NBIS</a></li>
-</ul> 
 
+</ul> 
 </div>
+        
 <div id="ticker-control">
+<!-- 1. Keep your original input box intact -->
 <input id="symbol-input" placeholder="e.g., NASDAQ:AAPL" value="NASDAQ:AAPL" />
+<!-- 2. Add the dropdown right next to it -->
+    <label for="ticker-select">Or choose from discovered list: </label>
+    <select id="ticker-select" onchange="syncDropdownToInput(this.value)">
+        <option value="">-- Quick Select --</option>
+        <!-- DROPDOWN OPTIONS WILL BE INSERTED HERE BY NODE -->
+    </select>
+  <!-- Your existing "Load Chart" button if you have one -->
 <button id="show-chart-btn">Show chart</button>
 </div>
 </div>
@@ -70,5 +68,28 @@ createWidget(sym);
 
 // Optionally create initial widget on load:
 createWidget(document.getElementById('symbol-input').value);
+
+function syncDropdownToInput(fileName) {
+    if (!fileName) return;
+    
+    // 1. Extract just the uppercase ticker symbol from the file path
+    // Example: "./my-pages/aapl.html" becomes "AAPL"
+    const baseName = fileName.split('/').pop(); // Gets "aapl.html"
+    const symbol = baseName.replace('.html', '').toUpperCase(); // Gets "AAPL"
+    
+    // 2. Find your existing TradingView input box and inject the symbol
+    const inputField = document.getElementById('symbol-input');
+    if (inputField) {
+        inputField.value = symbol;
+        
+        // 3. Trigger your existing TradingView chart load code automatically
+        // Replace 'yourExistingChartLoadFunction' with whatever function you use to update TV
+        if (typeof yourExistingChartLoadFunction === 'function') {
+            yourExistingChartLoadFunction();
+        }
+    }
+}
+
+        
 </script>
 </body></html>
