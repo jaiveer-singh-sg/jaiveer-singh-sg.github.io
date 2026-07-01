@@ -81,27 +81,23 @@ createWidget(sym);
 // Optionally create initial widget on load:
 createWidget(document.getElementById('symbol-input').value);
 
-function syncDropdownToInput(fileName) {
-    if (!fileName) return;
+function syncDropdownToInput(symbolText) {
+    // 1. Safety check to make sure a value exists
+    if (!symbolText) return;
     
-    // 1. Extract just the uppercase ticker symbol from the file path
-    // Example: "./my-pages/aapl.html" becomes "AAPL"
-    const baseName = fileName.split('/').pop(); // Gets "aapl.html"
-    const symbol = baseName.replace('.html', '').toUpperCase(); // Gets "AAPL"
-    
-    // 2. Find your existing TradingView input box and inject the symbol
+    // 2. Safely locate your input box element
     const inputField = document.getElementById('symbol-input');
+    
     if (inputField) {
-        inputField.value = symbol;
+        // Inject the pure "NASDAQ:AMD" string directly into the text box
+        inputField.value = symbolText; 
         
-        // 3. Trigger your existing TradingView chart load code automatically
-        // Replace 'yourExistingChartLoadFunction' with whatever function you use to update TV
+        // 3. Safely pass it down to refresh your TradingView chart widget
         if (typeof createWidget === 'function') {
-            createWidget(symbol);
+            createWidget(symbolText);
         }
     }
 }
-
-        
+       
 </script>
 </body></html>
