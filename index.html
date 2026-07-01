@@ -1,4 +1,10 @@
-<html><body><h1>Top 10 Swing Watchlist - July</h1><ul>
+<html><body><h1>Top 10 Swing Watchlist - July</h1>
+
+<div class="top-section">
+<div id="links-container">
+<!-- existing links turned into buttons (preserved hrefs) -->
+
+<ul>
 <li><a href='reports/AMD.html'>AMD</a></li>
 <li><a href='reports/TSM.html'>TSM</a></li>
 <li><a href='reports/LRCX.html'>LRCX</a></li>
@@ -9,4 +15,44 @@
 <li><a href='reports/SNOW.html'>SNOW</a></li>
 <li><a href='reports/SE.html'>SE</a></li>
 <li><a href='reports/NBIS.html'>NBIS</a></li>
-</ul></body></html>
+</ul> 
+
+</div>
+<div id="ticker-control">
+<input id="symbol-input" placeholder="e.g., NASDAQ:AAPL" value="NASDAQ:AAPL" />
+<button id="show-chart-btn">Show chart</button>
+</div>
+</div>
+<div class="chart-section">
+<div id="tradingview-widget"></div>
+</div>
+
+<script src="https://s3.tradingview.com/tv.js"></script>
+
+
+<script>
+function createWidget(symbol) {
+document.getElementById('tradingview-widget').innerHTML = '';
+new TradingView.widget({
+width: '100%',
+height: 600,
+symbol: symbol,
+interval: 'D',
+timezone: 'Etc/UTC',
+theme: 'light',
+style: '1',
+container_id: 'tradingview-widget',
+allow_symbol_change: true,
+enable_publishing: false
+});
+}
+
+document.getElementById('show-chart-btn').addEventListener('click', function(){
+const sym = document.getElementById('symbol-input').value.trim() || 'NASDAQ:AAPL';
+createWidget(sym);
+});
+
+// Optionally create initial widget on load:
+createWidget(document.getElementById('symbol-input').value);
+</script>
+</body></html>
