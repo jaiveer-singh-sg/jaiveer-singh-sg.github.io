@@ -31,10 +31,22 @@
     <label for="ticker-select">Or choose from discovered list: </label>
     <select id="ticker-select" onchange="syncDropdownToInput(this.value)">
         <option value="">-- Quick Select --</option>
-        <!-- DROPDOWN OPTIONS WILL BE INSERTED HERE BY NODE -->
+            <option value="NASDAQ:AMD">AMD</option>
+            <option value="NASDAQ:DELL">DELL</option>
+            <option value="NASDAQ:LRCX">LRCX</option>
+            <option value="NASDAQ:MRVL">MRVL</option>
+            <option value="NASDAQ:MU">MU</option>
+            <option value="NASDAQ:NBIS">NBIS</option>
+            <option value="NASDAQ:SE">SE</option>
+            <option value="NASDAQ:SNOW">SNOW</option>
+            <option value="NASDAQ:TER">TER</option>
+            <option value="NASDAQ:TSM">TSM</option>
+            <option value="NASDAQ:SE">SE</option>
     </select>
   <!-- Your existing "Load Chart" button if you have one -->
 <button id="show-chart-btn">Show chart</button>
+<br>
+<br>
 </div>
 </div>
 <div class="chart-section">
