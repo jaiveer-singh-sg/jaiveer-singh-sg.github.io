@@ -84,8 +84,8 @@ function syncDropdownToInput(fileName) {
         
         // 3. Trigger your existing TradingView chart load code automatically
         // Replace 'yourExistingChartLoadFunction' with whatever function you use to update TV
-        if (typeof yourExistingChartLoadFunction === 'function') {
-            yourExistingChartLoadFunction();
+        if (typeof createWidget === 'function') {
+            createWidget(symbol);
         }
     }
 }
