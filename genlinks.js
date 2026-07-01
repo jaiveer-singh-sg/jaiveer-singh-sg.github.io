@@ -16,9 +16,12 @@ fs.readdir(SUBFOLDER, (err, files) => {
         .map(file => `            <li><a href="${SUBFOLDER}/${file}">${file}</a></li>`)
         .join('\n');
         
-    // Generates options. It leaves the default "-- Quick Select --" option alone.
+    // Generates values formatted as NASDAQ:SYMBOL (e.g., NASDAQ:AAPL)
     const dropdownHtml = htmlFiles
-        .map(file => `            <option value="${SUBFOLDER}/${file}">${file}</option>`)
+        .map(file => {
+            const symbol = path.basename(file, '.html').toUpperCase();
+            return `            <option value="NASDAQ:${symbol}">${symbol}</option>`;
+        })
         .join('\n');
 
     // 4. Read the current index.html file
