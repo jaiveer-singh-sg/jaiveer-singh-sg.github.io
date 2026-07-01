@@ -10,10 +10,13 @@ fs.readdir(SUBFOLDER, (err, files) => {
 
     // 2. Filter for only HTML files
     const htmlFiles = files.filter(file => path.extname(file) === '.html');
-
+    
     // 3. Generate HTML link markup
     const linksHtml = htmlFiles
         .map(file => `            <li><a href="${SUBFOLDER}/${file}">${file}</a></li>`)
+        .join('\n');
+    const dropdownHtml = htmlFiles
+        .map(file => `            <option value="${SUBFOLDER}/${file}">${file}</option>`)
         .join('\n');
 
     // 4. Read the current index.html file
