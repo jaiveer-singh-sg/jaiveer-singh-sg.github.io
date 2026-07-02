@@ -1,103 +1,545 @@
-<html><body><h1>Top 10 Swing Watchlist - July</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Model &amp; Platform Landscape for Financial Services — July 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0A1628;
+    --ink-2:#0F2038;
+    --panel:#122642;
+    --panel-2:#0d1e36;
+    --line:#243c5c;
+    --gold:#C9A961;
+    --gold-dim:#8f7c4d;
+    --teal:#4FD1C5;
+    --paper:#F4F1E9;
+    --slate:#8B95A5;
+    --ink-text:#0A1628;
+    --red:#d97757;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--paper);
+    color:var(--ink-text);
+    font-family:'IBM Plex Sans', sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.01ms !important; transition-duration:0.01ms !important;}
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    letter-spacing:0.16em;
+    text-transform:uppercase;
+    font-size:0.7rem;
+    color:var(--gold);
+  }
+  a{color:inherit;}
 
-<div class="top-section">
+  /* ---------- HEADER ---------- */
+  header.hero{
+    background:linear-gradient(180deg, var(--ink) 0%, var(--ink-2) 100%);
+    color:var(--paper);
+    padding:3.2rem clamp(1.4rem, 6vw, 4.5rem) 3.6rem;
+    position:relative;
+    overflow:hidden;
+  }
+  header.hero::after{
+    content:"";
+    position:absolute; right:-8%; top:-30%;
+    width:520px; height:520px;
+    background:radial-gradient(circle, rgba(79,209,197,0.10) 0%, transparent 70%);
+  }
+  .hero-nav{
+    display:flex; justify-content:space-between; align-items:center;
+    font-family:'IBM Plex Mono', monospace; font-size:0.72rem;
+    letter-spacing:0.08em; text-transform:uppercase; color:var(--slate);
+    border-bottom:1px solid rgba(255,255,255,0.08);
+    padding-bottom:1.4rem; margin-bottom:2.2rem;
+    position:relative; z-index:2;
+  }
+  .hero-nav .mark{color:var(--gold); font-weight:600;}
+  .hero-title{position:relative; z-index:2; max-width:920px;}
+  .hero-title .eyebrow{display:block; margin-bottom:1rem;}
+  h1{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    font-size:clamp(2.1rem, 4.6vw, 3.6rem);
+    line-height:1.08;
+    letter-spacing:-0.01em;
+  }
+  h1 em{font-style:italic; font-weight:300; color:var(--gold);}
+  .hero-sub{
+    font-size:clamp(1rem, 1.5vw, 1.15rem);
+    color:#dfe3ea;
+    max-width:680px;
+    margin-top:1.2rem;
+    line-height:1.6;
+  }
+  .hero-sub strong{color:var(--teal); font-weight:500;}
+  .hero-meta{
+    display:flex; gap:2.4rem; flex-wrap:wrap;
+    margin-top:2.4rem; position:relative; z-index:2;
+    font-family:'IBM Plex Mono', monospace; font-size:0.72rem; color:var(--slate);
+  }
+  .hero-meta span b{color:var(--paper); font-weight:500;}
 
-<!-- The script will insert the dynamic links inside this tag -->
-        <ul id="dynamic-links-container">
-            <li><a href="./reports/AMD.html">AMD.html</a></li>
-            <li><a href="./reports/DELL.html">DELL.html</a></li>
-            <li><a href="./reports/LRCX.html">LRCX.html</a></li>
-            <li><a href="./reports/MRVL.html">MRVL.html</a></li>
-            <li><a href="./reports/MU.html">MU.html</a></li>
-            <li><a href="./reports/NBIS.html">NBIS.html</a></li>
-            <li><a href="./reports/SE.html">SE.html</a></li>
-            <li><a href="./reports/SNOW.html">SNOW.html</a></li>
-            <li><a href="./reports/TER.html">TER.html</a></li>
-            <li><a href="./reports/TSM.html">TSM.html</a></li>
-            <li><a href="./reports/se.html">se.html</a></li>
-        </ul>
+  /* ---------- SECTION SHARED ---------- */
+  section{
+    padding:4.6rem clamp(1.4rem, 6vw, 4.5rem);
+    max-width:1320px;
+    margin:0 auto;
+  }
+  .section-head{
+    display:flex; justify-content:space-between; align-items:flex-end;
+    gap:2rem; margin-bottom:2.6rem;
+    border-bottom:1px solid #d9d4c4; padding-bottom:1.1rem;
+  }
+  .section-head h2{
+    font-family:'Fraunces', serif; font-weight:500;
+    font-size:clamp(1.6rem, 3vw, 2.2rem); color:var(--ink);
+  }
+  .section-tag{
+    font-family:'IBM Plex Mono', monospace; font-size:0.7rem;
+    color:var(--slate); text-align:right; max-width:300px; line-height:1.5;
+  }
 
-<div id="links-container">
-<!-- existing links turned into buttons (preserved hrefs) -->
-<ul>
+  /* ---------- MODELS TABLE ---------- */
+  .models-wrap{
+    background:var(--ink);
+    color:var(--paper);
+  }
+  .models-wrap .section-head{border-bottom-color:rgba(255,255,255,0.12);}
+  .models-wrap .section-head h2{color:var(--paper);}
+  .models-wrap .section-tag{color:var(--slate);}
 
-</ul> 
-</div>
-        
-<div id="ticker-control">
-<!-- 1. Keep your original input box intact -->
-<input id="symbol-input" placeholder="e.g., NASDAQ:AAPL" value="NASDAQ:AAPL" />
-<!-- 2. Add the dropdown right next to it -->
-    <label for="ticker-select">Or choose from discovered list: </label>
-    <select id="ticker-select" onchange="syncDropdownToInput(this.value)">
-        <option value="">-- Quick Select --</option>
-            <option value="NASDAQ:AMD">AMD</option>
-            <option value="NASDAQ:DELL">DELL</option>
-            <option value="NASDAQ:LRCX">LRCX</option>
-            <option value="NASDAQ:MRVL">MRVL</option>
-            <option value="NASDAQ:MU">MU</option>
-            <option value="NASDAQ:NBIS">NBIS</option>
-            <option value="NASDAQ:SE">SE</option>
-            <option value="NASDAQ:SNOW">SNOW</option>
-            <option value="NASDAQ:TER">TER</option>
-            <option value="NASDAQ:TSM">TSM</option>
-            <option value="NASDAQ:SE">SE</option>
-    </select>
-  <!-- Your existing "Load Chart" button if you have one -->
-<button id="show-chart-btn">Show chart</button>
-<br>
-<br>
-</div>
-</div>
-<div class="chart-section">
-<div id="tradingview-widget"></div>
-</div>
+  .model-row{
+    display:grid;
+    grid-template-columns:56px 1.4fr 1fr 2.4fr;
+    gap:1.6rem;
+    padding:1.5rem 0;
+    border-bottom:1px solid rgba(255,255,255,0.08);
+    align-items:start;
+  }
+  .model-row.head-row{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.66rem;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--slate);
+    padding-bottom:0.9rem;
+    border-bottom:1px solid rgba(255,255,255,0.18);
+  }
+  .rank{
+    font-family:'Fraunces', serif;
+    font-size:1.7rem;
+    color:var(--gold);
+    font-weight:500;
+  }
+  .m-name{
+    font-family:'Fraunces', serif;
+    font-size:1.15rem;
+    font-weight:500;
+    color:var(--paper);
+  }
+  .m-provider{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.74rem;
+    color:var(--teal);
+    margin-top:0.25rem;
+  }
+  .m-tag{
+    display:inline-block;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.66rem;
+    letter-spacing:0.05em;
+    text-transform:uppercase;
+    padding:0.3rem 0.65rem;
+    border:1px solid rgba(201,169,97,0.4);
+    border-radius:999px;
+    color:var(--gold);
+    background:rgba(201,169,97,0.08);
+  }
+  .m-desc{
+    font-size:0.9rem;
+    line-height:1.65;
+    color:#c3cad6;
+  }
 
-<script src="https://s3.tradingview.com/tv.js"></script>
+  /* ---------- HYPERSCALERS ---------- */
+  .hyper-grid{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:1px;
+    background:#d9d4c4;
+    border:1px solid #d9d4c4;
+  }
+  .hyper-cell{
+    background:var(--paper);
+    padding:2.2rem 2rem;
+  }
+  .hyper-cell .h-top{
+    display:flex; justify-content:space-between; align-items:baseline;
+    margin-bottom:0.9rem;
+  }
+  .hyper-cell h3{
+    font-family:'Fraunces', serif;
+    font-size:1.3rem;
+    font-weight:500;
+    color:var(--ink);
+  }
+  .hyper-cell .provider-tag{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.68rem;
+    color:var(--gold-dim);
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+  }
+  .hyper-cell p{
+    font-size:0.9rem;
+    line-height:1.65;
+    color:#3d4450;
+    margin-bottom:0.9rem;
+  }
+  .hyper-cell .svc-list{
+    display:flex; flex-wrap:wrap; gap:0.5rem;
+    margin-bottom:0.9rem;
+  }
+  .svc-chip{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem;
+    padding:0.35rem 0.75rem;
+    background:#eae6d9;
+    border-radius:4px;
+    color:#4a4636;
+  }
+  .fit-line{
+    font-size:0.82rem;
+    color:var(--gold-dim);
+    font-weight:600;
+    border-top:1px solid #e3dfd2;
+    padding-top:0.8rem;
+  }
+  .fit-line span{color:#5a6070; font-weight:400;}
 
+  /* ---------- TOOLS ---------- */
+  .tools-section{
+    background:linear-gradient(180deg, #0F2038 0%, #0A1628 100%);
+    color:var(--paper);
+  }
+  .tools-section .section-head{border-bottom-color:rgba(79,209,197,0.25);}
+  .tools-section .section-head h2{color:var(--paper);}
+  .tools-section .eyebrow{color:var(--teal);}
+  .tools-section .section-tag{color:var(--slate);}
+  .tool-cat{margin-bottom:2.4rem;}
+  .tool-cat:last-child{margin-bottom:0;}
+  .tool-cat .cap{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase;
+    color:var(--teal); display:block; margin-bottom:1rem;
+  }
+  .chip-row{display:flex; flex-wrap:wrap; gap:0.6rem;}
+  .chip{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.8rem;
+    padding:0.5rem 0.95rem;
+    border:1px solid rgba(79,209,197,0.32);
+    border-radius:999px;
+    color:#dfe9ea;
+    background:rgba(79,209,197,0.05);
+    transition:all 0.22s ease;
+  }
+  .chip:hover{background:rgba(79,209,197,0.15); border-color:var(--teal); transform:translateY(-2px);}
 
-<script>
-function createWidget(symbol) {
-document.getElementById('tradingview-widget').innerHTML = '';
-new TradingView.widget({
-width: '100%',
-height: 600,
-symbol: symbol,
-interval: 'D',
-timezone: 'Etc/UTC',
-theme: 'light',
-style: '1',
-container_id: 'tradingview-widget',
-allow_symbol_change: true,
-enable_publishing: false
-});
-}
+  /* ---------- COMPLIANCE STRIP ---------- */
+  .compliance{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:1px;
+    background:#d9d4c4;
+    border:1px solid #d9d4c4;
+  }
+  .comp-cell{
+    background:var(--paper); padding:1.8rem 1.5rem;
+  }
+  .comp-cell .n{font-family:'IBM Plex Mono', monospace; font-size:0.68rem; color:var(--gold-dim);}
+  .comp-cell h4{font-family:'Fraunces', serif; font-size:1.05rem; font-weight:500; margin:0.5rem 0 0.4rem; color:var(--ink);}
+  .comp-cell p{font-size:0.82rem; color:#5a6070; line-height:1.55;}
 
-document.getElementById('show-chart-btn').addEventListener('click', function(){
-const sym = document.getElementById('symbol-input').value.trim() || 'NASDAQ:AAPL';
-createWidget(sym);
-});
+  footer{
+    background:var(--ink);
+    color:var(--slate);
+    padding:3rem clamp(1.4rem, 6vw, 4.5rem);
+    text-align:center;
+  }
+  footer .fnote{
+    max-width:640px; margin:0 auto;
+    font-size:0.82rem; line-height:1.65;
+  }
+  footer .fnote b{color:var(--gold); font-weight:500;}
 
-// Optionally create initial widget on load:
-createWidget(document.getElementById('symbol-input').value);
+  @media (max-width:900px){
+    .hyper-grid, .compliance{grid-template-columns:1fr;}
+    .model-row{grid-template-columns:36px 1fr; }
+    .model-row .m-provider-col, .model-row .m-desc-col{grid-column:2 / -1;}
+    .model-row.head-row{display:none;}
+    .section-head{flex-direction:column; align-items:flex-start; gap:0.7rem;}
+    .section-tag{text-align:left; max-width:none;}
+  }
+</style>
+</head>
+<body>
 
-function syncDropdownToInput(symbolText) {
-    // 1. Safety check to make sure a value exists
-    if (!symbolText) return;
-    
-    // 2. Safely locate your input box element
-    const inputField = document.getElementById('symbol-input');
-    
-    if (inputField) {
-        // Inject the pure "NASDAQ:AMD" string directly into the text box
-        inputField.value = symbolText; 
-        
-        // 3. Safely pass it down to refresh your TradingView chart widget
-        if (typeof createWidget === 'function') {
-            createWidget(symbolText);
-        }
-    }
-}
-       
-</script>
-</body></html>
+<header class="hero">
+  <div class="hero-nav">
+    <span class="mark">AI · LANDSCAPE BRIEFING</span>
+    <span>Prepared for Financial Services Leadership</span>
+  </div>
+  <div class="hero-title">
+    <span class="eyebrow">Models · Hyperscalers · Tooling</span>
+    <h1>The AI stack for <em>regulated finance</em></h1>
+    <p class="hero-sub">A working reference of the ten AI models, three hyperscaler platforms, and supporting tools most relevant to <strong>banks, insurers, and asset managers</strong> building AI-native operations — where governance, audit trails, and uptime matter as much as raw capability.</p>
+  </div>
+  <div class="hero-meta">
+    <span>As of <b>July 2026</b></span>
+    <span>Fast-moving field — <b>re-verify before procurement</b></span>
+    <span><b>10</b> models · <b>3+1</b> platforms · <b>15</b> tools</span>
+  </div>
+</header>
+
+<!-- ================= TOP 10 MODELS ================= -->
+<section class="models-wrap" id="models">
+  <div class="section-head">
+    <div>
+      <span class="eyebrow">01 — Foundation Models</span>
+      <h2>Top 10 models for financial services</h2>
+    </div>
+    <div class="section-tag">Ranked by relevance to regulated FS workloads — reasoning, document analysis, cost, and deployment flexibility.</div>
+  </div>
+
+  <div class="model-row head-row">
+    <span>#</span><span>Model</span><span>Category</span><span>Why it matters for financial services</span>
+  </div>
+
+  <div class="model-row">
+    <span class="rank">01</span>
+    <div><div class="m-name">Claude Opus 4.8</div><div class="m-provider">Anthropic</div></div>
+    <span class="m-tag">Frontier Reasoning</span>
+    <p class="m-desc">Leads on long, careful reasoning and document-heavy work — contract review, credit memos, regulatory filings — with a strong safety and transparency posture that compliance teams favor.</p>
+  </div>
+
+  <div class="model-row">
+    <span class="rank">02</span>
+    <div><div class="m-name">GPT-5.5</div><div class="m-provider">OpenAI</div></div>
+    <span class="m-tag">Frontier Generalist</span>
+    <p class="m-desc">The strongest all-round agentic model — multi-step workflows, coding, and research — widely deployed through Copilot and Azure OpenAI in enterprise finance stacks.</p>
+  </div>
+
+  <div class="model-row">
+    <span class="rank">03</span>
+    <div><div class="m-name">Gemini 3.1 Pro</div><div class="m-provider">Google DeepMind</div></div>
+    <span class="m-tag">Long-Context</span>
+    <p class="m-desc">Handles very large documents and multimodal inputs at strong price-performance — well suited to prospectus review, filings analysis, and portfolio document search.</p>
+  </div>
+
+  <div class="model-row">
+    <span class="rank">04</span>
+    <div><div class="m-name">Claude Sonnet 5</div><div class="m-provider">Anthropic</div></div>
+    <span class="m-tag">Workhorse</span>
+    <p class="m-desc">The balanced cost-to-capability model for everyday production use — client communications, code, and internal copilots — where Opus-level reasoning isn't required.</p>
+  </div>
+
+  <div class="model-row">
+    <span class="rank">05</span>
+    <div><div class="m-name">Grok 4.2</div><div class="m-provider">xAI</div></div>
+    <span class="m-tag">Real-Time Data</span>
+    <p class="m-desc">A very large context window and live data access make it a candidate for market-monitoring and sentiment workflows, though enterprise governance tooling trails the leaders.</p>
+  </div>
+
+  <div class="model-row">
+    <span class="rank">06</span>
+    <div><div class="m-name">DeepSeek V4</div><div class="m-provider">DeepSeek</div></div>
+    <span class="m-tag">Cost-Efficient</span>
+    <p class="m-desc">Near-frontier reasoning at a fraction of the cost, open-weight — attractive for high-volume, self-hosted workloads where data residency rules out third-party APIs.</p>
+  </div>
+
+  <div class="model-row">
+    <span class="rank">07</span>
+    <div><div class="m-name">Qwen3.5 Max</div><div class="m-provider">Alibaba</div></div>
+    <span class="m-tag">Open-Weight · APAC</span>
+    <p class="m-desc">Strong multilingual coverage across APAC languages and low cost, making it a common choice for regional banks and insurers deploying in-market, on-premises assistants.</p>
+  </div>
+
+  <div class="model-row">
+    <span class="rank">08</span>
+    <div><div class="m-name">GLM-5.2</div><div class="m-provider">Z.AI (Zhipu)</div></div>
+    <span class="m-tag">Open-Weight Leader</span>
+    <p class="m-desc">The highest-scoring open-weights model on general intelligence benchmarks — a self-hostable option for firms that need model weights under their own control for audit purposes.</p>
+  </div>
+
+  <div class="model-row">
+    <span class="rank">09</span>
+    <div><div class="m-name">Kimi K2.6</div><div class="m-provider">Moonshot AI</div></div>
+    <span class="m-tag">Agentic · Open</span>
+    <p class="m-desc">A cost-effective open model tuned for agentic, multi-step tool use — increasingly used behind the scenes in lower-cost automation and back-office agent pipelines.</p>
+  </div>
+
+  <div class="model-row">
+    <span class="rank">10</span>
+    <div><div class="m-name">BloombergGPT</div><div class="m-provider">Bloomberg</div></div>
+    <span class="m-tag">Domain-Specific</span>
+    <p class="m-desc">Purpose-built and trained on decades of financial data — a reference point for what a finance-native model can do on tasks like NER, sentiment, and financial Q&amp;A.</p>
+  </div>
+</section>
+
+<!-- ================= HYPERSCALERS ================= -->
+<section id="hyperscalers">
+  <div class="section-head">
+    <div>
+      <span class="eyebrow">02 — Cloud AI Platforms</span>
+      <h2>Hyperscaler AI services</h2>
+    </div>
+    <div class="section-tag">Where models get deployed, governed, and connected to core banking and insurance systems.</div>
+  </div>
+
+  <div class="hyper-grid">
+    <div class="hyper-cell">
+      <div class="h-top"><h3>AWS Bedrock</h3><span class="provider-tag">Amazon Web Services</span></div>
+      <p>A managed, model-agnostic marketplace — one API across Anthropic, Meta, Amazon Titan, Cohere, and Mistral — with AgentCore handling agent runtime, guardrails, and knowledge bases.</p>
+      <div class="svc-list">
+        <span class="svc-chip">Bedrock AgentCore</span>
+        <span class="svc-chip">SageMaker</span>
+        <span class="svc-chip">Titan</span>
+        <span class="svc-chip">Knowledge Bases</span>
+      </div>
+      <div class="fit-line">Best fit: <span>AWS-native estates wanting the widest model choice under one contract.</span></div>
+    </div>
+
+    <div class="hyper-cell">
+      <div class="h-top"><h3>Azure AI Foundry</h3><span class="provider-tag">Microsoft</span></div>
+      <p>The full platform layer above Azure OpenAI — orchestration, evaluation, and governance — plus Copilot Studio for citizen-developer agents and deep Microsoft 365 / Entra ID integration.</p>
+      <div class="svc-list">
+        <span class="svc-chip">Azure OpenAI Service</span>
+        <span class="svc-chip">Copilot Studio</span>
+        <span class="svc-chip">Fabric IQ</span>
+        <span class="svc-chip">Agent 365</span>
+      </div>
+      <div class="fit-line">Best fit: <span>Microsoft-centric banks and insurers already standardized on M365 and Entra ID.</span></div>
+    </div>
+
+    <div class="hyper-cell">
+      <div class="h-top"><h3>Google Vertex AI</h3><span class="provider-tag">Google Cloud</span></div>
+      <p>Strong retrieval and search primitives via Vertex AI Search, plus native access to the Gemini model family — a natural fit where BigQuery is the data warehouse of record.</p>
+      <div class="svc-list">
+        <span class="svc-chip">Vertex AI Search</span>
+        <span class="svc-chip">Gemini Enterprise</span>
+        <span class="svc-chip">BigQuery ML</span>
+        <span class="svc-chip">Agent Builder</span>
+      </div>
+      <div class="fit-line">Best fit: <span>Data science-heavy teams and Google Workspace organisations.</span></div>
+    </div>
+
+    <div class="hyper-cell">
+      <div class="h-top"><h3>IBM watsonx</h3><span class="provider-tag">IBM</span></div>
+      <p>A governance-first platform for regulated buyers who need model risk management, lineage, and audit tooling as a first-class feature rather than an add-on.</p>
+      <div class="svc-list">
+        <span class="svc-chip">watsonx.governance</span>
+        <span class="svc-chip">watsonx.ai</span>
+        <span class="svc-chip">watsonx.data</span>
+      </div>
+      <div class="fit-line">Best fit: <span>Mid-market FS firms needing FINRA/SEC-grade governance without a dedicated MLOps team.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= KEY TOOLS ================= -->
+<section class="tools-section" id="tools">
+  <div class="section-head">
+    <div>
+      <span class="eyebrow">03 — Ecosystem</span>
+      <h2>Key tools around the models</h2>
+    </div>
+    <div class="section-tag">The orchestration, governance, and domain layers that turn a model into a production financial-services system.</div>
+  </div>
+
+  <div class="tool-cat">
+    <span class="cap">Agent orchestration &amp; frameworks</span>
+    <div class="chip-row">
+      <span class="chip">LangChain</span>
+      <span class="chip">LlamaIndex</span>
+      <span class="chip">Semantic Kernel</span>
+      <span class="chip">Microsoft Agent 365</span>
+      <span class="chip">Bedrock AgentCore</span>
+    </div>
+  </div>
+
+  <div class="tool-cat">
+    <span class="cap">Governance, risk &amp; explainability</span>
+    <div class="chip-row">
+      <span class="chip">SHAP</span>
+      <span class="chip">Model risk management (SR 11-7 aligned)</span>
+      <span class="chip">AI Control Tower</span>
+      <span class="chip">watsonx.governance</span>
+    </div>
+  </div>
+
+  <div class="tool-cat">
+    <span class="cap">Finance-native platforms</span>
+    <div class="chip-row">
+      <span class="chip">Bloomberg Terminal / GPT</span>
+      <span class="chip">FactSet</span>
+      <span class="chip">AlphaSense</span>
+      <span class="chip">Tellius</span>
+      <span class="chip">DataSnipper</span>
+      <span class="chip">Vena Copilot</span>
+    </div>
+  </div>
+
+  <div class="tool-cat">
+    <span class="cap">Retrieval, data &amp; vector search</span>
+    <div class="chip-row">
+      <span class="chip">Vertex AI Search</span>
+      <span class="chip">Azure AI Search</span>
+      <span class="chip">Pinecone</span>
+      <span class="chip">Weaviate</span>
+    </div>
+  </div>
+
+  <div class="tool-cat">
+    <span class="cap">Developer &amp; engineering agents</span>
+    <div class="chip-row">
+      <span class="chip">Claude Code</span>
+      <span class="chip">GitHub Copilot</span>
+      <span class="chip">Cursor</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================= COMPLIANCE STRIP ================= -->
+<section id="compliance">
+  <div class="section-head">
+    <div>
+      <span class="eyebrow">04 — Buyer Checklist</span>
+      <h2>What regulated buyers should verify</h2>
+    </div>
+  </div>
+  <div class="compliance">
+    <div class="comp-cell"><span class="n">01</span><h4>Compliance posture</h4><p>SOC 2 Type II as a baseline; alignment with MAS TRM, GLBA, NYDFS, or the EU AI Act where applicable.</p></div>
+    <div class="comp-cell"><span class="n">02</span><h4>Workflow scope</h4><p>Point solutions plateau — platforms that orchestrate intake through compliance compound value faster.</p></div>
+    <div class="comp-cell"><span class="n">03</span><h4>Integration depth</h4><p>Value depends on connection to core banking, claims, and CRM systems — not the model alone.</p></div>
+    <div class="comp-cell"><span class="n">04</span><h4>Evidence, not logos</h4><p>Ask for production references in your exact vertical and institution size, not a marketing case study.</p></div>
+  </div>
+</section>
+
+<footer>
+  <p class="fnote"><b>Note:</b> The AI model and platform landscape changes on a roughly monthly cycle. This briefing reflects the state of the market as of July 2026 — treat rankings and product names as a starting point for due diligence, not a final procurement decision.</p>
+</footer>
+
+</body>
+</html>
